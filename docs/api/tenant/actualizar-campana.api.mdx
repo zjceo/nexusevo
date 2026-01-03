@@ -1,0 +1,71 @@
+---
+id: actualizar-campana
+title: "Actualizar campaña"
+description: "Actualizar campaña"
+sidebar_label: "Actualizar campaña"
+hide_title: true
+hide_table_of_contents: true
+api: eJxtVEtu2zAQvYowqxaQLdto0Fa7NMgimyJInU0NIxiLY5uJRDL8OHEFHapn6MWKIeVf7JXE+fG9mcdpwePKQTmDG2wMypVyMM/BURWs9FsoZy0sCC3Z6+DXUM7m3TwHgxYb8mRdDFDYEJQgBeQgFZRg0K8hB0uvQVoSUHobKAdXralBKFvwW8MZzlupVtBxTQ4m539oseWIj7mVVp6UZxcaU8sKvdSqeHZase2stF48U+VPQMwS0BwEbWRFTxFvDGdKVhuyXpLjIonRGc7j1EveZPjoyIFUaPh+T+8MqSEhEXLAIKSGHIxYwrxL/RGhJvGE/lKZpbYNe0Cgp4GXDUHHt0pfc9xugg+pk9B17LXkjFYu8ZqMRvwR5CorDXdwl/fvL2ZY+YC1/IMCY+HTsOud12ZVnxG5+LUWPPPA1OLkSyiqnZqKVooOWFF2s9NLsDWUsPbeuLIoWk8Kle+G7QIdPdq6K9DIAnLYoJW4qBP0FJXQLzHU3IdmO+jNXQ599mmEovfgaKOHimJDjrT9iyWTah8rfN92xge9aPmcgmJjWHUPB73evmNjajoI5zCyI70cjP0FvRpOpw6T0eTLYPR1MPk+HV+VV+Ny8m04+jr+zRSlWuqIsJ/4T2Z3u9HZNHYhu76/g7Ox3d9lgjLuv6ykdhk/3iy4gJZPgrLUQpeRymrMTI0eo9KyXfkhz4KsSwXHw/FwxGiMdr5BdUT7skRO8LTH7AtTo1RcK6TBJfnMYC8fyKGUgh/oWjvPrnYvk47Nr4Esr6n5QS5RY0I6/hdQLrF2dIZiv0/g00O/IT5np7M5oOuNqLZRlXXgE+TwQtu09zp+vmtCQTbenhw36Y7BlNMPiWf7i1W5f0f3j1PIYdGvwUYLTrH4xqsM39K9OtKI0o22FmpUq4Arjk0lWaZ4KuhewPnuh4FeZNa2KWKqX0h13Z6o5zNz7br/yaEfmA==
+sidebar_class_name: "put api-method"
+info_path: api/tenant/nexusevo-tenant-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Actualizar campaña"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/campaigns/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Actualizar campaña
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"id","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["name","device_id","type"],"properties":{"name":{"type":"string"},"device_id":{"type":"string"},"type":{"type":"string","enum":["text","media","audio","pdf"]},"scheduled_at":{"type":"string","format":"date-time"}},"title":"CampaignRequest"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Campaña actualizada"}}}
+>
+  
+</StatusCodes>
+
+
+      

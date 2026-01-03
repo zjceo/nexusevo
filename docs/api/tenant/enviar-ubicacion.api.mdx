@@ -1,0 +1,71 @@
+---
+id: enviar-ubicacion
+title: "Enviar ubicación"
+description: "Enviar ubicación"
+sidebar_label: "Enviar ubicación"
+hide_title: true
+hide_table_of_contents: true
+api: eJxtVMtu2zAQ/BVhz4zl9MhbWuQQoGmDPE6GDytpbTOlSIYPJ4agr+on9MeKJRVbbu2Lyd3xYHZnzAEibgPIFdxTCLhVZgtrAZ7eEoX41XYHkEO+Kk8dyOgTCWitiWQit9A5rVqMypr6NVjDtdDuqEc+xYMjkGCbV2ojiBnRCkzqG/IgQGNUMXXER2u25bwW4Lx15KOiwFQT/EQaome144zg1JzQ45zyUtdgTxc5ses8hXChNwqIKmoufbdl8vuwfSwbg3FkgKfgrAlF+Zflkr86Cq1XjvEg4aVRLbbqz29Tkdkr7DAzn4NuueOrdMSCgJ7iznYgwdnAK3UYdyCh7rN/VAcy3ZWehIGAQH5Pni0eIHkNEnYxuiDreohk0MRxMTQY6MXrsUanahCwR6+w0UV+QZUJNph0BAn94WoqjwKmX58jDH2kQHu7MJSXsmYlbfIqHp44HoW7IfTkbxKPcFw062PhGQZyAuX1cMIeT9m8/cDeaZrH49OmeSqWZylYfrp+gh7NngVAmY3Noiavf/BAt3tbPefBq5uHO/jXr5uHu6qjileuWmVD5dBjlUJCz7eOqrK1UJGpNFZOY8SN9T1Wn/QLXj/5UAivF9eLJaths3vM/65J/KVsnKk57jPSR6ydRmWYKRWnSmxWMMUmB2UenLWAHQdMrmA45mPk8lsifwC5Wp9ywrdRwI6wYw9WA/yiA0j4Vt6Jq2cWwnCdWNB/bwan45jrh59PzyCgmd6e3rJp4PGd3w98BwkgwOYhc4ZybQCNZpt4EgmFkz9/AW9Fsec=
+sidebar_class_name: "post api-method"
+info_path: api/tenant/nexusevo-tenant-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Enviar ubicación"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/message/send-location"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Enviar ubicación
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["number","latitude","longitude"],"properties":{"number":{"type":"string"},"latitude":{"type":"number"},"longitude":{"type":"number"},"name":{"type":"string"},"address":{"type":"string"}},"title":"LocationMsgRequest"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Ubicación enviada"}}}
+>
+  
+</StatusCodes>
+
+
+      

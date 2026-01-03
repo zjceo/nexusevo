@@ -1,0 +1,193 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "NexusEvo System API",
+    "description": "API de administración central para la gestión de la plataforma NexusEvo.",
+    "version": "1.1.0"
+  },
+  "servers": [
+    {
+      "url": "https://{baseUrl}/system/api/",
+      "variables": {
+        "baseUrl": {
+          "default": "nexusevo.net"
+        }
+      }
+    }
+  ],
+  "paths": {
+    "/login": {
+      "post": {
+        "summary": "Login de Sistema",
+        "tags": ["System Auth"],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LoginRequest" } } }
+        },
+        "responses": { "200": { "description": "Auth exitosa" } }
+      }
+    },
+    "/logout": {
+      "post": {
+        "summary": "Logout de Sistema",
+        "tags": ["System Auth"],
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "Sesión cerrada" } }
+      }
+    },
+    "/me": {
+      "get": {
+        "summary": "Perfil de Administrador",
+        "tags": ["System Auth"],
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "Datos del perfil" } }
+      }
+    },
+    "/tenants": {
+      "get": {
+        "summary": "Listar Tenants",
+        "tags": ["System Tenants"],
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "Lista de tenants" } }
+      },
+      "post": {
+        "summary": "Crear Tenant",
+        "tags": ["System Tenants"],
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TenantRequest" } } }
+        },
+        "responses": { "201": { "description": "Tenant creado" } }
+      }
+    },
+    "/tenants/{id}": {
+      "get": {
+        "summary": "Ver detalles de Tenant",
+        "tags": ["System Tenants"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "$ref": "#/components/parameters/id" }],
+        "responses": { "200": { "description": "Detalles del tenant" } }
+      },
+      "put": {
+        "summary": "Actualizar Tenant",
+        "tags": ["System Tenants"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "$ref": "#/components/parameters/id" }],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TenantRequest" } } }
+        },
+        "responses": { "200": { "description": "Tenant actualizado" } }
+      },
+      "delete": {
+        "summary": "Eliminar Tenant",
+        "tags": ["System Tenants"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "$ref": "#/components/parameters/id" }],
+        "responses": { "200": { "description": "Tenant eliminado" } }
+      }
+    },
+    "/tenants/{id}/block": {
+      "post": {
+        "summary": "Bloquear Tenant",
+        "tags": ["System Tenants"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "$ref": "#/components/parameters/id" }],
+        "responses": { "200": { "description": "Tenant bloqueado" } }
+      }
+    },
+    "/tenants/{id}/unblock": {
+      "post": {
+        "summary": "Desbloquear Tenant",
+        "tags": ["System Tenants"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "$ref": "#/components/parameters/id" }],
+        "responses": { "200": { "description": "Tenant desbloqueado" } }
+      }
+    },
+    "/plans": {
+      "get": {
+        "summary": "Listar Planes",
+        "tags": ["System Plans"],
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "Lista de planes" } }
+      },
+      "post": {
+        "summary": "Crear Plan",
+        "tags": ["System Plans"],
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/PlanRequest" } } }
+        },
+        "responses": { "201": { "description": "Plan creado" } }
+      }
+    },
+    "/plans/{id}": {
+      "get": {
+        "summary": "Ver detalles de Plan",
+        "tags": ["System Plans"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "$ref": "#/components/parameters/id" }],
+        "responses": { "200": { "description": "Detalles del plan" } }
+      },
+      "put": {
+        "summary": "Actualizar Plan",
+        "tags": ["System Plans"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "$ref": "#/components/parameters/id" }],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/PlanRequest" } } }
+        },
+        "responses": { "200": { "description": "Plan actualizado" } }
+      },
+      "delete": {
+        "summary": "Eliminar Plan",
+        "tags": ["System Plans"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "$ref": "#/components/parameters/id" }],
+        "responses": { "200": { "description": "Plan eliminado" } }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": { "bearerAuth": { "type": "http", "scheme": "bearer" } },
+    "parameters": {
+      "id": { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+    },
+    "schemas": {
+      "LoginRequest": {
+        "type": "object",
+        "required": ["email", "password"],
+        "properties": {
+          "email": { "type": "string" },
+          "password": { "type": "string" }
+        }
+      },
+      "TenantRequest": {
+        "type": "object",
+        "required": ["company_name", "owner_name", "owner_email", "domain"],
+        "properties": {
+          "company_name": { "type": "string" },
+          "owner_name": { "type": "string" },
+          "owner_email": { "type": "string" },
+          "domain": { "type": "string" },
+          "plan_id": { "type": "integer" }
+        }
+      },
+      "PlanRequest": {
+        "type": "object",
+        "required": ["name", "description", "price"],
+        "properties": {
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "price": { "type": "number" },
+          "billing_cycle": { "type": "string", "enum": ["monthly", "yearly"] },
+          "max_devices": { "type": "integer" }
+        }
+      }
+    }
+  }
+}

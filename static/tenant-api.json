@@ -1,0 +1,246 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "NexusEvo Tenant API",
+    "description": "API de servicios para usuarios de tenants en la plataforma NexusEvo.",
+    "version": "1.1.0"
+  },
+  "servers": [
+    {
+      "url": "https://{tenant}.{baseUrl}/api/",
+      "variables": {
+        "tenant": { "default": "my-tenant" },
+        "baseUrl": { "default": "nexusevo.net" }
+      }
+    }
+  ],
+  "paths": {
+    "/auth/login": {
+      "post": {
+        "summary": "Login de Tenant",
+        "tags": ["Tenant Auth"],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LoginRequest" } } }
+        },
+        "responses": { "200": { "description": "Auth exitosa" } }
+      }
+    },
+    "/auth/logout": {
+      "post": {
+        "summary": "Logout de Tenant",
+        "tags": ["Tenant Auth"],
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "Sesión cerrada" } }
+      }
+    },
+    "/auth/me": {
+      "get": {
+        "summary": "Perfil de Usuario",
+        "tags": ["Tenant Auth"],
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "Datos del perfil" } }
+      }
+    },
+    "/device/status": {
+      "get": {
+        "summary": "Estado del dispositivo",
+        "tags": ["Messaging"],
+        "responses": { "200": { "description": "Estado del dispositivo" } }
+      }
+    },
+    "/message/send-text": {
+      "post": {
+        "summary": "Enviar mensaje de texto",
+        "tags": ["Messaging"],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TextMsgRequest" } } }
+        },
+        "responses": { "200": { "description": "Mensaje enviado" } }
+      }
+    },
+    "/message/send-media": {
+      "post": {
+        "summary": "Enviar media (imagen, video, audio)",
+        "tags": ["Messaging"],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/MediaMsgRequest" } } }
+        },
+        "responses": { "200": { "description": "Media enviada" } }
+      }
+    },
+    "/message/send-pdf": {
+      "post": {
+        "summary": "Enviar archivo PDF",
+        "tags": ["Messaging"],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/PdfMsgRequest" } } }
+        },
+        "responses": { "200": { "description": "PDF enviado" } }
+      }
+    },
+    "/message/send-location": {
+      "post": {
+        "summary": "Enviar ubicación",
+        "tags": ["Messaging"],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LocationMsgRequest" } } }
+        },
+        "responses": { "200": { "description": "Ubicación enviada" } }
+      }
+    },
+    "/message/send-contact": {
+      "post": {
+        "summary": "Enviar contacto",
+        "tags": ["Messaging"],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ContactMsgRequest" } } }
+        },
+        "responses": { "200": { "description": "Contacto enviado" } }
+      }
+    },
+    "/devices": {
+      "get": {
+        "summary": "Listar dispositivos",
+        "tags": ["Devices"],
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "Lista de dispositivos" } }
+      },
+      "post": {
+        "summary": "Crear dispositivo",
+        "tags": ["Devices"],
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeviceRequest" } } }
+        },
+        "responses": { "201": { "description": "Dispositivo creado" } }
+      }
+    },
+    "/devices/{id}": {
+      "get": {
+        "summary": "Ver detalles de dispositivo",
+        "tags": ["Devices"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "$ref": "#/components/parameters/id" }],
+        "responses": { "200": { "description": "Detalles del dispositivo" } }
+      },
+      "put": {
+        "summary": "Actualizar dispositivo",
+        "tags": ["Devices"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "$ref": "#/components/parameters/id" }],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeviceRequest" } } }
+        },
+        "responses": { "200": { "description": "Dispositivo actualizado" } }
+      },
+      "delete": {
+        "summary": "Eliminar dispositivo",
+        "tags": ["Devices"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "$ref": "#/components/parameters/id" }],
+        "responses": { "200": { "description": "Dispositivo eliminado" } }
+      }
+    },
+    "/campaigns": {
+      "get": {
+        "summary": "Listar campañas",
+        "tags": ["Campaigns"],
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "Lista de campañas" } }
+      },
+      "post": {
+        "summary": "Crear campaña",
+        "tags": ["Campaigns"],
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CampaignRequest" } } }
+        },
+        "responses": { "201": { "description": "Campaña creada" } }
+      }
+    },
+    "/campaigns/{id}": {
+      "get": {
+        "summary": "Ver detalles de campaña",
+        "tags": ["Campaigns"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "$ref": "#/components/parameters/id" }],
+        "responses": { "200": { "description": "Detalles de campaña" } }
+      },
+      "put": {
+        "summary": "Actualizar campaña",
+        "tags": ["Campaigns"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "$ref": "#/components/parameters/id" }],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CampaignRequest" } } }
+        },
+        "responses": { "200": { "description": "Campaña actualizada" } }
+      },
+      "delete": {
+        "summary": "Eliminar campaña",
+        "tags": ["Campaigns"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "$ref": "#/components/parameters/id" }],
+        "responses": { "200": { "description": "Campaña eliminada" } }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": { "bearerAuth": { "type": "http", "scheme": "bearer" } },
+    "parameters": {
+      "id": { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+    },
+    "schemas": {
+      "LoginRequest": {
+        "type": "object",
+        "required": ["email", "password"],
+        "properties": { "email": { "type": "string" }, "password": { "type": "string" } }
+      },
+      "TextMsgRequest": {
+        "type": "object",
+        "required": ["number", "message"],
+        "properties": { "number": { "type": "string" }, "message": { "type": "string" } }
+      },
+      "MediaMsgRequest": {
+        "type": "object",
+        "required": ["number", "mediaUrl", "mediaType"],
+        "properties": { "number": { "type": "string" }, "mediaUrl": { "type": "string" }, "mediaType": { "type": "string", "enum": ["image", "video", "audio"] }, "caption": { "type": "string" } }
+      },
+      "PdfMsgRequest": {
+        "type": "object",
+        "required": ["number", "pdfUrl"],
+        "properties": { "number": { "type": "string" }, "pdfUrl": { "type": "string" }, "fileName": { "type": "string" } }
+      },
+      "LocationMsgRequest": {
+        "type": "object",
+        "required": ["number", "latitude", "longitude"],
+        "properties": { "number": { "type": "string" }, "latitude": { "type": "number" }, "longitude": { "type": "number" }, "name": { "type": "string" }, "address": { "type": "string" } }
+      },
+      "ContactMsgRequest": {
+        "type": "object",
+        "required": ["number", "contactNumber", "displayName"],
+        "properties": { "number": { "type": "string" }, "contactNumber": { "type": "string" }, "displayName": { "type": "string" } }
+      },
+      "DeviceRequest": {
+        "type": "object",
+        "required": ["device_name"],
+        "properties": { "device_name": { "type": "string" }, "description": { "type": "string" } }
+      },
+      "CampaignRequest": {
+        "type": "object",
+        "required": ["name", "device_id", "type"],
+        "properties": { "name": { "type": "string" }, "device_id": { "type": "string" }, "type": { "type": "string", "enum": ["text", "media", "audio", "pdf"] }, "scheduled_at": { "type": "string", "format": "date-time" } }
+      }
+    }
+  }
+}

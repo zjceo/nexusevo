@@ -7,7 +7,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'NexusEvo',
   tagline: 'Gestión de comunicaciones masivas',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/nexusevo-favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -62,9 +62,16 @@ const config: Config = {
         id: "api",
         docsPluginId: "classic",
         config: {
-          nexusevo: {
-            specPath: "static/openapi.json",
-            outputDir: "docs/api",
+          admin: {
+            specPath: "static/system-api.json",
+            outputDir: "docs/api/admin",
+            sidebarOptions: {
+              groupPathsBy: "tag",
+            },
+          },
+          tenant: {
+            specPath: "static/tenant-api.json",
+            outputDir: "docs/api/tenant",
             sidebarOptions: {
               groupPathsBy: "tag",
             },
@@ -78,7 +85,7 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/nexusevo-social-card.jpg',
     colorMode: {
       respectPrefersColorScheme: true,
     },
@@ -86,7 +93,7 @@ const config: Config = {
       title: 'NexusEvo',
       logo: {
         alt: 'NexusEvo Logo',
-        src: 'img/logo.svg',
+        src: 'img/nexusevo-logo.svg',
       },
       items: [
         /*{
@@ -121,7 +128,7 @@ const config: Config = {
           ],
         },*/
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      //copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,

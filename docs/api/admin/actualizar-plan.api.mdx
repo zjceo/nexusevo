@@ -1,0 +1,71 @@
+---
+id: actualizar-plan
+title: "Actualizar Plan"
+description: "Actualizar Plan"
+sidebar_label: "Actualizar Plan"
+hide_title: true
+hide_table_of_contents: true
+api: eJxtVEuO2zAMvYrBVQuocaZL79JiFrMpgvmsgmDA2EyiGVnySHQmruFT9Qi9WEHJ+TVZ2eKffI/sgXEToFjAUxeY6mxu0AZYKghUtl5zB8WihxWhJz9reQvFYjksFTTosSYmH6KBxZqgAF2BAm2hgAZ5Cwo8fbTaUwUF+5YUhHJLNULRA3eNeAT22m5gkJhiTIF/uKoTi/99S2eZLIsKm8boElk7m78FZ0V2Fdqt3qjkiyIWqVAFFYXS60YCgILG65Kk6ca7hjxrChInNXVV6qX3LX2Kd9LYtl6RF81KG6Pt5rXsSnMjtgKybS111s7y1nSgoCP0poPloKDG/WtFO12m+kZfbZk2En5QwJolLgiMj2mcMAyi8RQaZ0Py/D6dyueij+iTYcktGv0bKxcDXprMDlofiQIKauKtqwTwVkYdYS8gb4RGea+rAYRKfncgSusNFLBlbkKR5/0KA714M+Qh0i/HRuegYIde48qkYkebVPAaW8MyUtq3gXZuYil2eMbYJyHC6HrG2+O8JDmMVJR3MordCpceTyy832PdJJxGgh9xupzLUTwiP71C+gzQCxSngyzM2sX6RvB+SW/3O5eNOzmbP1xlnM0fsooyrGptdWCPpf77x2YlWfZoMlnPzGC2ocBRUZE8G4OMa+drzA5JJjJu8iGFvZvcTaaRwi5wjfas9Wvsb68B054Ff20lTpuAS7xYQOQFKCh0Jfu2dYFF3B+JMIj4oyUvh2d5YkIkT6WD/FdQrNEEuqrgeCHgy+O4818zULcrG4Vou0g408oLFLxTly7ZICu3JazIx+xJ8TPl+PYs7ifHq4skjDwux/zlGRSsxsNWu0pcPH7KccLPlNfFNiJto6wHg3bT4kZsU0ihKF6SeSSvOvxIoTc76/tk8ezeyQ7DsVGWt/Q6DP8AL/kVIg==
+sidebar_class_name: "put api-method"
+info_path: api/admin/nexusevo-system-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Actualizar Plan"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plans/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Actualizar Plan
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"id","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["name","description","price"],"properties":{"name":{"type":"string"},"description":{"type":"string"},"price":{"type":"number"},"billing_cycle":{"type":"string","enum":["monthly","yearly"]},"max_devices":{"type":"integer"}},"title":"PlanRequest"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Plan actualizado"}}}
+>
+  
+</StatusCodes>
+
+
+      

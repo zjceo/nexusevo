@@ -1,0 +1,71 @@
+---
+id: crear-plan
+title: "Crear Plan"
+description: "Crear Plan"
+sidebar_label: "Crear Plan"
+hide_title: true
+hide_table_of_contents: true
+api: eJxtVM1u2zAMfhWDZy1Od/StG3roZQva7hQEBWOziVpZUik5jWHoqfYIe7GBspvESE+2RPLjz/eJA0TcBajW8NiHSG2xMmgDbBQEqjvWsYdqPcCWkIlvu7iHar1JGwVM7x2F+MM1PVRDPmqmBqrIHSmonY1ko5jQe6NrjNrZ8jU4K3eh3lOL8hd7T1CB275SHUFdAK3BYkugoKFQs/YCAAo865qkQM/OE0dNQXCy7xkvRNZ2B2ke/ZV9xDtbbNduicWy1cZou3uu+9p8ga2AbNdKna2zcW96UNATsulhkxS0eHxu6KDrsb4pVttIO4FPCqKOggsy8odxnJCSWJiCdzaMkd+XN/KZ9ZFjipoJG5ex5tafTMiZSlDQUty7BirwLsiEPQqLUPrMtBDNB+KQee7YQAX7GH2oynLYYqA/bFIZsjhK9LoEBQdkjVszljf5jCW+YGeiDJGOXaCDW1jKPV3o6VGon0IvVHWakCSXqrIbVJNTblLU83DW3d0RWz8yM7J/ZmY+jtP1xPXyitsLCme8LZMCbV9crm+i65f0dndwxfRiblf3VxlvV/dFQwU2rbY6RMZa//tri5psZDSFR8bCYLGjELOhITl6gxFfHLdYfCZZyLiJwwh7s7hZLLNoXYgt2ovWZ5R/rflIxyisaysQ3cjZqIY1+M93vxeVVGsYTuwnuX7viGUXbM7051WgYE/YEGf5vFEvpYxv/9uTpBV300n6qz0gqjiJc/X78QkUbKd90rpGYhg/ZCfgB1QAClxuKWsn3w1g0O463InviCk6wbmiJgWpzx+pdDKh7S8qHIbR48m9kU0J1NRQlDOkTUrpP8OryqQ=
+sidebar_class_name: "post api-method"
+info_path: api/admin/nexusevo-system-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Crear Plan"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plans"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Crear Plan
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["name","description","price"],"properties":{"name":{"type":"string"},"description":{"type":"string"},"price":{"type":"number"},"billing_cycle":{"type":"string","enum":["monthly","yearly"]},"max_devices":{"type":"integer"}},"title":"PlanRequest"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"201":{"description":"Plan creado"}}}
+>
+  
+</StatusCodes>
+
+
+      

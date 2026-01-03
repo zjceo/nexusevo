@@ -12,8 +12,10 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 
  Create as many sidebars as you want.
  */
+import adminSidebar from "./docs/api/admin/sidebar";
+import tenantSidebar from "./docs/api/tenant/sidebar";
+
 const sidebars: SidebarsConfig = {
-  // By default, Docusaurus generates a sidebar from the docs folder structure
   tutorialSidebar: [
     'intro',
     {
@@ -28,14 +30,21 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "API Reference",
+      label: "Admin API",
       link: {
-        type: "generated-index",
-        title: "NexusEvo API",
-        description: "Documentación técnica de los endpoints de mensajería.",
-        slug: "/api"
+        type: "doc",
+        id: "api/admin/nexusevo-system-api",
       },
-      items: require("./docs/api/sidebar.ts")
+      items: adminSidebar,
+    },
+    {
+      type: "category",
+      label: "Tenant API",
+      link: {
+        type: "doc",
+        id: "api/tenant/nexusevo-tenant-api",
+      },
+      items: tenantSidebar,
     },
   ],
 };

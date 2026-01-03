@@ -1,116 +1,200 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "NexusEvo Messaging API",
-    "description": "API para el envío de mensajes y gestión de dispositivos de WhatsApp en la plataforma NexusEvo.",
-    "version": "1.0.0"
+    "title": "NexusEvo API",
+    "description": "API completa para la gestión de la plataforma NexusEvo, incluyendo administración central y gestión de tenants.",
+    "version": "1.1.0"
   },
   "servers": [
     {
       "url": "https://{tenant}.nexusevo.net/api/",
+      "description": "API de Tenant",
       "variables": {
         "tenant": {
           "default": "my-tenant"
         }
       }
+    },
+    {
+      "url": "https://nexusevo.net/system/api/",
+      "description": "API de Sistema (Panel Central)"
     }
   ],
   "paths": {
-    "/device/status": {
-      "get": {
-        "summary": "Obtener estado del dispositivo",
-        "description": "Retorna el estado actual de la conexión de WhatsApp para el dispositivo autenticado.",
-        "responses": {
-          "200": {
-            "description": "Estado del dispositivo",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "status": { "type": "string" },
-                    "battery": { "type": "number" },
-                    "connected": { "type": "boolean" }
-                  }
+    "/auth/login": {
+      "post": {
+        "summary": "Login de Tenant",
+        "description": "Autenticación para usuarios de un tenant específico.",
+        "tags": ["Tenant Auth"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["email", "password"],
+                "properties": {
+                  "email": { "type": "string", "example": "user@tenant.com" },
+                  "password": { "type": "string", "example": "password" }
                 }
               }
             }
           }
+        },
+        "responses": {
+          "200": { "description": "Token generado exitosamente" }
+        }
+      }
+    },
+    "/auth/me": {
+      "get": {
+        "summary": "Perfil de Usuario Tenant",
+        "tags": ["Tenant Auth"],
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "200": { "description": "Datos del usuario" }
+        }
+      }
+    },
+    "/device/status": {
+      "get": {
+        "summary": "Obtener estado del dispositivo",
+        "tags": ["Messaging"],
+        "responses": {
+          "200": { "description": "Estado del dispositivo" }
         }
       }
     },
     "/message/send-text": {
       "post": {
         "summary": "Enviar mensaje de texto",
+        "tags": ["Messaging"],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": ["number", "text"],
+                "required": ["number", "message"],
                 "properties": {
-                  "number": { "type": "string", "example": "51987654321" },
-                  "text": { "type": "string", "example": "Hola, esto es un mensaje de prueba." }
+                  "number": { "type": "string" },
+                  "message": { "type": "string" }
                 }
               }
             }
           }
         },
         "responses": {
-          "200": {
-            "description": "Mensaje enviado exitosamente"
-          }
+          "200": { "description": "Mensaje enviado" }
         }
       }
     },
-    "/message/send-media": {
+    "/devices": {
+      "get": {
+        "summary": "Listar dispositivos",
+        "tags": ["Devices"],
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "200": { "description": "Lista de dispositivos" }
+        }
+      },
       "post": {
-        "summary": "Enviar media (imagen, video, audio)",
+        "summary": "Crear dispositivo",
+        "tags": ["Devices"],
+        "security": [{ "bearerAuth": [] }],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": ["number", "mediaUrl", "mediaType"],
+                "required": ["device_name"],
                 "properties": {
-                  "number": { "type": "string" },
-                  "mediaUrl": { "type": "string" },
-                  "mediaType": { "type": "string", "enum": ["image", "video", "audio"] },
-                  "caption": { "type": "string" }
+                  "device_name": { "type": "string" },
+                  "description": { "type": "string" }
                 }
               }
             }
           }
         },
         "responses": {
-          "200": { "description": "Media enviada" }
+          "201": { "description": "Dispositivo creado" }
         }
       }
     },
-    "/message/send-pdf": {
+    "/campaigns": {
+      "get": {
+        "summary": "Listar campañas",
+        "tags": ["Campaigns"],
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "200": { "description": "Lista de campañas" }
+        }
+      }
+    },
+    "/login": {
       "post": {
-        "summary": "Enviar archivo PDF",
+        "summary": "Login de Sistema",
+        "tags": ["System Auth"],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": ["number", "pdfUrl"],
+                "required": ["email", "password"],
                 "properties": {
-                  "number": { "type": "string" },
-                  "pdfUrl": { "type": "string" },
-                  "fileName": { "type": "string" }
+                  "email": { "type": "string" },
+                  "password": { "type": "string" }
                 }
               }
             }
           }
         },
         "responses": {
-          "200": { "description": "PDF enviado" }
+          "200": { "description": "Auth exitosa" }
         }
+      }
+    },
+    "/tenants": {
+      "get": {
+        "summary": "Listar Tenants",
+        "tags": ["System Tenants"],
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "200": { "description": "Lista de tenants" }
+        }
+      }
+    },
+    "/tenants/{tenant}/block": {
+      "post": {
+        "summary": "Bloquear Tenant",
+        "tags": ["System Tenants"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "tenant", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Tenant bloqueado" }
+        }
+      }
+    },
+    "/plans": {
+      "get": {
+        "summary": "Listar Planes",
+        "tags": ["System Plans"],
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "200": { "description": "Lista de planes" }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
       }
     }
   }
