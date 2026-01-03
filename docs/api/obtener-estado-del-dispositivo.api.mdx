@@ -1,0 +1,61 @@
+---
+id: obtener-estado-del-dispositivo
+title: "Obtener estado del dispositivo"
+description: "Retorna el estado actual de la conexión de WhatsApp para el dispositivo autenticado."
+sidebar_label: "Estado del dispositivo"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1kz2O2zAQha9CTK1YTkp1LoxgiySLIEEKw8WImrXoUEOGMxJsCDpSqhxhLxZQsnftbB01Ejk/b8jvaYSGxCYX1QWGCr6ShsRoyBsSxSYYtNqjNw0Zj8YGppN7/sN5/aNFlU2MJmKaKxonMYhTNwSDvRKrs9iEFRSQSGJgIYFqhA/rdX7dK28Xuea+DxRgA+dWuQJj9M5iriiPkstGENtSh/lLz5GgglAfySoUEFOIlNQtoqKovdzkiSbHB5gKqFGV0vkmxn1XU8oxG5jJKjU30ToET8gwLU8BHWkbGqjgQLMwagsVlA0NzlJ5US5AKA2UBKrdCH3yUEGrGqUqy1GJkXVaMZ16oSGsmLTE6EooYMDksPbLMZbE5fqesPcKFXTnd5ftaZr2BTh+CnOuU5/n/ZybbodgPpEIHhwfzObxAYp/CGweH15QEg/PvzMN0xELHknM2RxI9Ar/hpHcmYE4GyV6VHwKqUNzVc82yMdfxN6v1qt1vuAYRDucUTJ2edwvtRJTuhrwrSPuxh5fDfLf3HvhrnTSMnp0nAefCY4X2DtYYGfKC+59AW0QzaFxrFHoe/LTlLd/9bPZdvtXtHk1FdASNpRmf/ykc0ZiLUWdPeD7PMKbPyDzfrHfx+03mKa/3VtZ0w==
+sidebar_class_name: "get api-method"
+info_path: api/nexusevo-messaging-api
+custom_edit_url: null
+sidebar_position: 1
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Obtener estado del dispositivo"}
+></Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/device/status"}
+  context={"endpoint"}
+></MethodEndpoint>
+
+Retorna el estado actual de la conexión de WhatsApp para el dispositivo autenticado.
+
+<ParamsDetails parameters={undefined}></ParamsDetails>
+
+<RequestSchema title={"Body"} body={undefined}></RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{
+    "200": {
+      description: "Estado del dispositivo",
+      content: {
+        "application/json": {
+          schema: {
+            type: "object",
+            properties: {
+              status: { type: "string" },
+              battery: { type: "number" },
+              connected: { type: "boolean" },
+            },
+          },
+        },
+      },
+    },
+  }}
+></StatusCodes>

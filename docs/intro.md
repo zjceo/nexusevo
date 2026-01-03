@@ -1,3 +1,10 @@
+---
+title: "NexusEvo"
+slug: /
+sidebar_position: 1
+hide_table_of_contents: true
+---
+
 # NexusEvo
 
 **NexusEvo** es una plataforma SaaS multi-tenant diseñada para la gestión integral de comunicaciones masivas a través de WhatsApp y correo electrónico.

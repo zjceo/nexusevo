@@ -1,0 +1,72 @@
+---
+id: enviar-mensaje-de-texto
+title: "Enviar mensaje de texto"
+description: "Enviar mensaje de texto"
+sidebar_label: "Mensaje de texto"
+hide_title: true
+hide_table_of_contents: true
+api: eJyNU81u2zAMfhWBZzVOu3U/unVDgfXQrdg67BDkwMRsrM6WVJFOExh+pJ32CH2xgY7TtBtQTBdbFH8+fh/ZQaa7llg+xHILrhuuPlMJTnJLFpYxCAXRJ0yp9ksUH0NxyzGojZcVNah/sk0EDuLilpYC9kmiGYS2WVAGC0IbgbmFlGOiLJ5YQ8fnQxKW7MMKLNAGm1Sr6fT4/bu3b05fvzo5hn5M9GLAp1ijNcQSDbFpg2koMN6SKcmk3NICJ9APR7FyioF3aE6mU/2UxMvsk3YLDi7HYAprj2U0tPESGRsKQqApnrufq1t+WlIBR7DQkFSxBAcpstKUUCpwUDTEjCsqmEJ5NHRngSmvKTO4WQdtrsFBJZLYFUUnFDBIPwm0aZnWcRJICky+AAtrzB4X9a6bneOuoRtsawEHzfZoNPd9P7egYn49jMH5nsODMs/o37P/fxRb8OEmDlC8DMp8Vszn62guh559WJmzqwv4m8OzqwuTMKOhWml/+BU171iCzdasiMU//A5qLj2nyF78OrLef1QofJaSoWBqNKlGwZuYGzT76hNlijLvih1PppOpglVZGhxmO2BDL2r5DO/jLOprkWr0QfMNunWjzDMYZR7E3Qs9t1DpMLgZdN0Cmb7nuu/VfNdS3oKbzQ+i6q23UBGWKsysg5+0BQcfd3t6dK0g1L1uFcw/O6t6P87g1Zdv12BhMe5+E0uNyXiv+4v34AAsxKHBYZgGWwc1hlWrXTjY5dTzB1dTeW0=
+sidebar_class_name: "post api-method"
+info_path: api/nexusevo-messaging-api
+custom_edit_url: null
+sidebar_position: 2
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Enviar mensaje de texto"}
+></Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/message/send-text"}
+  context={"endpoint"}
+></MethodEndpoint>
+
+Enviar mensaje de texto
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+></Heading>
+
+<ParamsDetails parameters={undefined}></ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{
+    required: true,
+    content: {
+      "application/json": {
+        schema: {
+          type: "object",
+          required: ["number", "text"],
+          properties: {
+            number: { type: "string", example: "51987654321" },
+            text: {
+              type: "string",
+              example: "Hola, esto es un mensaje de prueba.",
+            },
+          },
+        },
+      },
+    },
+  }}
+></RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{ "200": { description: "Mensaje enviado exitosamente" } }}
+></StatusCodes>

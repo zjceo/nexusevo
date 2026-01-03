@@ -1,0 +1,117 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "NexusEvo Messaging API",
+    "description": "API para el envío de mensajes y gestión de dispositivos de WhatsApp en la plataforma NexusEvo.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://{tenant}.nexusevo.net/api/",
+      "variables": {
+        "tenant": {
+          "default": "my-tenant"
+        }
+      }
+    }
+  ],
+  "paths": {
+    "/device/status": {
+      "get": {
+        "summary": "Obtener estado del dispositivo",
+        "description": "Retorna el estado actual de la conexión de WhatsApp para el dispositivo autenticado.",
+        "responses": {
+          "200": {
+            "description": "Estado del dispositivo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string" },
+                    "battery": { "type": "number" },
+                    "connected": { "type": "boolean" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/message/send-text": {
+      "post": {
+        "summary": "Enviar mensaje de texto",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["number", "text"],
+                "properties": {
+                  "number": { "type": "string", "example": "51987654321" },
+                  "text": { "type": "string", "example": "Hola, esto es un mensaje de prueba." }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Mensaje enviado exitosamente"
+          }
+        }
+      }
+    },
+    "/message/send-media": {
+      "post": {
+        "summary": "Enviar media (imagen, video, audio)",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["number", "mediaUrl", "mediaType"],
+                "properties": {
+                  "number": { "type": "string" },
+                  "mediaUrl": { "type": "string" },
+                  "mediaType": { "type": "string", "enum": ["image", "video", "audio"] },
+                  "caption": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Media enviada" }
+        }
+      }
+    },
+    "/message/send-pdf": {
+      "post": {
+        "summary": "Enviar archivo PDF",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["number", "pdfUrl"],
+                "properties": {
+                  "number": { "type": "string" },
+                  "pdfUrl": { "type": "string" },
+                  "fileName": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "PDF enviado" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,71 @@
+---
+id: enviar-media-imagen-video-audio
+title: "Enviar media (imagen, video, audio)"
+description: "Enviar media (imagen, video, audio)"
+sidebar_label: "Enviar media"
+hide_title: true
+hide_table_of_contents: true
+api: eJyNVE1vGjEQ/SvWnFrJsLRH32jFIYe0qE3UA+Iw4IE1XX/E9hLQan9ST/0J+WPVeAmQpJXqy9oz9vOb98bbQaSHllL+5PURVFeWJpIGlWNLEtbeZXKZUxhCY9aYjXfVLnnHsbSuySLP8jEQKPCrHa0zyCugBbjWriiCBEva4H1snqd3fGgpIUQfKGZDiaFO2y+gKUfjttBfAfwzWSDfZCWQay1zMRa3BBL2RpMHCdhq42HZS1hj4Nr+Al0Gl5SCd2kg+XEy4Y+mtI7mdBBumYEgtzeoEfjMy/yMM1EUouJdoeKkKFSkKEzeF2ly7TUoCD6xlAFzDQoqSynhlqpETo8KBkhIFPcUE6hFBy0LA3XOIamq6jI5dLkfOzq0ifZ+7ChXGEzF5WM0uGqGWoaNQzkbbJsMCuxxdAr3fb+UwI5/u/TK7IA2NHRt10Xri0uvYoM5Zw/Oil+ZaNzGF04mMzx8YfKzvRe3pXrjtmI6v4HXyk7nNyJgREEN6//0ywtNwpJLuKMkjmJLKZun347D2qTgk8lm7xOvf9SY0zQEQU40KEKDGTc+WhTPt49ZMoppuOzDeDKeMFk2yGJpGYeW/tvhF9zP7ZbpkKvQoHGM3Q5dPpi/gJP5xfGz/UsJNfeIWkDXrTDRfWz6nsMPLcUjqMXyYjWvegk1oWa7Fh38pCMo+Dw88VExh7c3LbN589y5C86tOf/6/Q4krE6/Des1n4n4yE8fH0EBSPClwtJiJdZBg27bchkKBkwefwD+fY8L
+sidebar_class_name: "post api-method"
+info_path: api/nexusevo-messaging-api
+custom_edit_url: null
+sidebar_position: 3
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Enviar media (imagen, video, audio)"}
+></Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/message/send-media"}
+  context={"endpoint"}
+></MethodEndpoint>
+
+Enviar media (imagen, video, audio)
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+></Heading>
+
+<ParamsDetails parameters={undefined}></ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{
+    required: true,
+    content: {
+      "application/json": {
+        schema: {
+          type: "object",
+          required: ["number", "mediaUrl", "mediaType"],
+          properties: {
+            number: { type: "string" },
+            mediaUrl: { type: "string" },
+            mediaType: { type: "string", enum: ["image", "video", "audio"] },
+            caption: { type: "string" },
+          },
+        },
+      },
+    },
+  }}
+></RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{ "200": { description: "Media enviada" } }}
+></StatusCodes>
