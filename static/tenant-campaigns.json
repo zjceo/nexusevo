@@ -1,0 +1,77 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "NexusEvo Tenant API - Campaigns",
+    "description": "API de gestión de campañas para usuarios de tenants en la plataforma NexusEvo.",
+    "version": "1.1.0"
+  },
+  "servers": [
+    {
+      "url": "https://{tenant}.{baseUrl}/api/",
+      "variables": {
+        "tenant": { "default": "my-tenant" },
+        "baseUrl": { "default": "nexusevo.net" }
+      }
+    }
+  ],
+  "paths": {
+    "/campaigns": {
+      "get": {
+        "summary": "Listar campañas",
+        "tags": ["Campaigns"],
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "Lista de campañas" } }
+      },
+      "post": {
+        "summary": "Crear campaña",
+        "tags": ["Campaigns"],
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CampaignRequest" } } }
+        },
+        "responses": { "201": { "description": "Campaña creada" } }
+      }
+    },
+    "/campaigns/{id}": {
+      "get": {
+        "summary": "Ver detalles de campaña",
+        "tags": ["Campaigns"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "$ref": "#/components/parameters/id" }],
+        "responses": { "200": { "description": "Detalles de campaña" } }
+      },
+      "put": {
+        "summary": "Actualizar campaña",
+        "tags": ["Campaigns"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "$ref": "#/components/parameters/id" }],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CampaignRequest" } } }
+        },
+        "responses": { "200": { "description": "Campaña actualizada" } }
+      },
+      "delete": {
+        "summary": "Eliminar campaña",
+        "tags": ["Campaigns"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "$ref": "#/components/parameters/id" }],
+        "responses": { "200": { "description": "Campaña eliminada" } }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": { "bearerAuth": { "type": "http", "scheme": "bearer" } },
+    "parameters": {
+      "id": { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+    },
+    "schemas": {
+      "CampaignRequest": {
+        "type": "object",
+        "required": ["name", "device_id", "type"],
+        "properties": { "name": { "type": "string" }, "device_id": { "type": "string" }, "type": { "type": "string", "enum": ["text", "media", "audio", "pdf"] }, "scheduled_at": { "type": "string", "format": "date-time" } }
+      }
+    }
+  }
+}

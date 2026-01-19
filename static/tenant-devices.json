@@ -1,0 +1,84 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "NexusEvo Tenant API - Devices",
+    "description": "API de gestión de dispositivos para usuarios de tenants en la plataforma NexusEvo.",
+    "version": "1.1.0"
+  },
+  "servers": [
+    {
+      "url": "https://{tenant}.{baseUrl}/api/",
+      "variables": {
+        "tenant": { "default": "my-tenant" },
+        "baseUrl": { "default": "nexusevo.net" }
+      }
+    }
+  ],
+  "paths": {
+    "/device/status": {
+      "get": {
+        "summary": "Estado del dispositivo",
+        "tags": ["Devices"],
+        "responses": { "200": { "description": "Estado del dispositivo" } }
+      }
+    },
+    "/devices": {
+      "get": {
+        "summary": "Listar dispositivos",
+        "tags": ["Devices"],
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "Lista de dispositivos" } }
+      },
+      "post": {
+        "summary": "Crear dispositivo",
+        "tags": ["Devices"],
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeviceRequest" } } }
+        },
+        "responses": { "201": { "description": "Dispositivo creado" } }
+      }
+    },
+    "/devices/{id}": {
+      "get": {
+        "summary": "Ver detalles de dispositivo",
+        "tags": ["Devices"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "$ref": "#/components/parameters/id" }],
+        "responses": { "200": { "description": "Detalles del dispositivo" } }
+      },
+      "put": {
+        "summary": "Actualizar dispositivo",
+        "tags": ["Devices"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "$ref": "#/components/parameters/id" }],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeviceRequest" } } }
+        },
+        "responses": { "200": { "description": "Dispositivo actualizado" } }
+      },
+      "delete": {
+        "summary": "Eliminar dispositivo",
+        "tags": ["Devices"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "$ref": "#/components/parameters/id" }],
+        "responses": { "200": { "description": "Dispositivo eliminado" } }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": { "bearerAuth": { "type": "http", "scheme": "bearer" } },
+    "parameters": {
+      "id": { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+    },
+    "schemas": {
+      "DeviceRequest": {
+        "type": "object",
+        "required": ["device_name"],
+        "properties": { "device_name": { "type": "string" }, "description": { "type": "string" } }
+      }
+    }
+  }
+}

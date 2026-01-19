@@ -69,9 +69,34 @@ const config: Config = {
               groupPathsBy: "tag",
             },
           },
-          tenant: {
-            specPath: "static/tenant-api.json",
-            outputDir: "docs/api/tenant",
+          "tenant-auth": {
+            specPath: "static/tenant-auth.json",
+            outputDir: "docs/api/tenant/auth",
+            baseUrl: "/api/tenant",
+            sidebarOptions: {
+              groupPathsBy: "tag",
+            },
+          },
+          "tenant-devices": {
+            specPath: "static/tenant-devices.json",
+            outputDir: "docs/api/tenant/devices",
+            baseUrl: "/api/tenant",
+            sidebarOptions: {
+              groupPathsBy: "tag",
+            },
+          },
+          "tenant-send-message": {
+            specPath: "static/tenant-send-message.json",
+            outputDir: "docs/api/tenant/send-message",
+            baseUrl: "/api/tenant",
+            sidebarOptions: {
+              groupPathsBy: "tag",
+            },
+          },
+          "tenant-campaigns": {
+            specPath: "static/tenant-campaigns.json",
+            outputDir: "docs/api/tenant/campaigns",
+            baseUrl: "/api/tenant",
             sidebarOptions: {
               groupPathsBy: "tag",
             },
