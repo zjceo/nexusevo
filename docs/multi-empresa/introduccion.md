@@ -1,4 +1,8 @@
-# Administración de Tenants
+---
+sidebar_position: 0
+---
+
+# Introducción
 
 La administración de tenants es el corazón del sistema central de NexusEvo. Permite gestionar quién utiliza la plataforma y bajo qué condiciones.
 

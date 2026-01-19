@@ -1,0 +1,45 @@
+.apiEndpoint {
+  background: var(--ifm-card-background-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  margin: 1rem 0;
+  transition: all 0.2s ease;
+}
+
+.apiEndpoint:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
+}
+
+.endpointHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.endpointPath {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  background: rgba(99, 102, 241, 0.08);
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.375rem;
+  flex: 1;
+  min-width: 200px;
+}
+
+.endpointDescription {
+  margin: 0.75rem 0 0 0;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Dark mode */
+[data-theme='dark'] .apiEndpoint {
+  background: var(--ifm-background-surface-color);
+  border-color: var(--ifm-color-emphasis-300);
+}
