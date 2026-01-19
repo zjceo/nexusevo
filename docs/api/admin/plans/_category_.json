@@ -1,0 +1,8 @@
+{
+  "label": "Plans",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Endpoints para la gestión de planes del sistema, incluyendo creación, actualización, eliminación y consulta de planes."
+  }
+}

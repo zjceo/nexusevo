@@ -1,13 +1,13 @@
 ---
-id: bloquear-tenant
-title: "Bloquear Tenant"
-description: "Bloquear Tenant"
-sidebar_label: "Bloquear Tenant"
+id: desbloquear-tenant
+title: "Desbloquear Tenant"
+description: "Desbloquear Tenant"
+sidebar_label: "Desbloquear Tenant"
 hide_title: true
 hide_table_of_contents: true
-api: eJxtU81u2zAMfhXjO22AELc76tYBO/TSFWt3CnJgbKYRIkuuRAcNDD3VHmEvNtB2sv6dLIoU+f3QI4SeMuwaD6cs3FWPHChIxsYgczMkJyfY9YgtU+J0M8gedr0pG4OeEnUsnPJUEKhjWLgWBi7AoifZwyDx8+ASt7CSBjbIzZ47gh0hp15fZEkuPKFoz8S5jyFz1vy3qyv9tJyb5HpxUbvO+Kqtj88DUxtRinlX8n3OpYULDDqWfWwVU8waT9AsapnJ1qNrS731sTlAaafjmdSQPCz2In22dT1uKfPv5EudJ7Fq6l0NgyMlR1s/o15qZuQ7GrzAIvDLkPkYV4EFZaJ6VvdB9VievtL4Io8OxyKbxnPRRNuFXZwqnXhN3emUH8dYLV7e3N/ivTg397dVyxW1nQsuS6LG/f0TqoaDJPKVmlp5qp44y5RoWcPek9Aupo6q85CVEueU57bXq+vVFYqZFO4oKKxlIz7a8QbRhajwi9S9Jxe0zzBLODu1xuIUDOy0YbNZG4O9OmrXGC/mFL1+Hjjp4m7+uzMZ2rqs5xZ2Rz7zByxNDMJBLfvya1ncrxXM5xiXSwqnaQn8oBEMDnya/4SyKa+W7/7nwyMM6K2/i5/mfFCUnzYex7niMR44lHKZIxrrqFL+AdJQThY=
+api: eJxtU81u2zAMfhWDpxbQ4nRH3Qqsh122YslOgQ+KzcZCZMkRqaCBoafaI+zFBtqO15+cLIoU+f3QA7A5EOgdbC7E2BVb9MYzQaWAsE7R8gX0boA9mojxMXELelflSkFvoumQMdJY4E2HoME2oMB60NAbbkFBxFOyERvQHBMqoLrFzoAegC+9vCCO1h8gS8+I1AdPSJL/ul7Lp0Gqo+3ZBuk64SsapL0Lp4SmCZCz+lD1bUnHmREo6JDb0AiyQBKPADWUPFEuB9vkMvm9C/URhH48X8ml6EBDy9yTLsthbwh/R5dLGkUrTW9LUHA20Zq9m9DPNRODF5McgwaPr4nwHFYeGfJI+aryRnSZn77RepFJhsMsn8RT0cjd+pcwVlp2kvohU57OoZg9fXz+XnxZnP2o1ZNv+mA9UyGOFs4UByS2f//4osFiFqe4q51Fz0j3K2GKkabXD6uH1RqyGkXtjBcc8yrcNOHd7IUc4yuXvTPWS6s0yTb5swNegOtxu64WVQpacVLvYFgsyXJ9Shhlbav/now2Npbk3IB+MY7wE5o6eEYvRt39mtf2vgB1G+V8afxltN4liUDBES/Tf5Cr/Gbpnn9utqDAvHd1dlFdD4LyZuNhmCq24Yg+52UOSyyjcv4HHLNNGg==
 sidebar_class_name: "post api-method"
-info_path: api/admin/nexusevo-system-api
+info_path: api/admin/tenants/nexusevo-system-api-tenants
 custom_edit_url: null
 ---
 
@@ -22,13 +22,13 @@ import Heading from "@theme/Heading";
 <Heading
   as={"h1"}
   className={"openapi__heading"}
-  children={"Bloquear Tenant"}
+  children={"Desbloquear Tenant"}
 >
 </Heading>
 
 <MethodEndpoint
   method={"post"}
-  path={"/tenants/{id}/block"}
+  path={"/tenants/{id}/unblock"}
   context={"endpoint"}
 >
   
@@ -36,7 +36,7 @@ import Heading from "@theme/Heading";
 
 
 
-Bloquear Tenant
+Desbloquear Tenant
 
 <Heading
   id={"request"}
@@ -62,7 +62,7 @@ Bloquear Tenant
 <StatusCodes
   id={undefined}
   label={undefined}
-  responses={{"200":{"description":"Tenant bloqueado"}}}
+  responses={{"200":{"description":"Tenant desbloqueado"}}}
 >
   
 </StatusCodes>

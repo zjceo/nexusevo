@@ -1,0 +1,8 @@
+{
+  "label": "Tenant API",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Documentación de la API para clientes (tenants). Estos endpoints permiten a los clientes gestionar sus dispositivos, campañas, mensajes y autenticación."
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "label": "Campaigns",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Endpoints para la gestión de campañas de mensajería, incluyendo creación, actualización, eliminación y consulta de campañas."
+  }
+}

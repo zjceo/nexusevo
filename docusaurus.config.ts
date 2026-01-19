@@ -62,9 +62,26 @@ const config: Config = {
         id: "api",
         docsPluginId: "classic",
         config: {
-          admin: {
-            specPath: "static/system-api.json",
-            outputDir: "docs/api/admin",
+          "admin-auth": {
+            specPath: "static/admin-auth.json",
+            outputDir: "docs/api/admin/auth",
+            baseUrl: "/api/admin",
+            sidebarOptions: {
+              groupPathsBy: "tag",
+            },
+          },
+          "admin-tenants": {
+            specPath: "static/admin-tenants.json",
+            outputDir: "docs/api/admin/tenants",
+            baseUrl: "/api/admin",
+            sidebarOptions: {
+              groupPathsBy: "tag",
+            },
+          },
+          "admin-plans": {
+            specPath: "static/admin-plans.json",
+            outputDir: "docs/api/admin/plans",
+            baseUrl: "/api/admin",
             sidebarOptions: {
               groupPathsBy: "tag",
             },

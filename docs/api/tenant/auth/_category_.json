@@ -1,0 +1,8 @@
+{
+  "label": "Auth",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Endpoints para autenticación de tenants, incluyendo login, logout y gestión de perfil."
+  }
+}
